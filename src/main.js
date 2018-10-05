@@ -3,6 +3,17 @@
 import Vue from 'vue'
 import App from './App'
 
+import './style/app.css';
+
+
+Vue.directive('focus', {
+  update(el, binding){
+    if( binding.value ){
+      el.focus();
+    }
+  }
+});
+
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
@@ -11,3 +22,4 @@ new Vue({
   components: { App },
   template: '<App/>'
 })
+
