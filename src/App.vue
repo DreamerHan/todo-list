@@ -75,14 +75,10 @@ export default {
           return this.taskList;
         break;
         case 'active' :
-          return this.taskList.filter( item =>{
-            return !item.checked;
-          } );
+          return this.taskList.filter( item => !item.checked );
         break;
         case 'completed' :
-          return this.taskList.filter( item =>{
-            return item.checked;
-          } );
+          return this.taskList.filter( item => item.checked );
         break;
       }
     }
@@ -95,10 +91,17 @@ export default {
   created(){
     this.taskList = JSON.parse( localStorage.getItem('todo-component') ) || [];
     let hash = window.location.hash;
-    if (hash) {
+    if ( hash ) {
       this.nowHash = hash.replace(/#/, '');
     }
-
+  },
+  watch: {
+    nowHash: function(newHash) {
+      if (!'allactivecompleted'.includes(newHash)) {
+        this.nowHash = 'all';
+        window.location.hash = this.nowHash;
+      }
+    }
   }
 }
 </script>
