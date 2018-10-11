@@ -3,13 +3,13 @@
     <section class="todoapp">
         <todoHeader @addFn="handleAddFn"></todoHeader>
         <todoContent
-          v-show="taskList.length" 
-          :taskList="filterTask" 
+          v-show="taskList.length"
+          :taskList="filterTask"
           @doneFn="handleDoneFn"
           @deleteFn="handleDeleteFn"
         ></todoContent>
         <todoFoot
-          v-show="taskList.length" 
+          v-show="taskList.length"
           :unCheckedLen="unCheckedLen"
           :nowHash = "nowHash"
           @hashFn="handleHashFn"
@@ -51,6 +51,7 @@ export default {
       this.taskList.splice(posIndex, 1);
     },
     handleHashFn(value){ //hash值筛选数据
+      window.location.hash = value;
       this.nowHash = value;
     }
   },
@@ -93,6 +94,11 @@ export default {
   },
   created(){
     this.taskList = JSON.parse( localStorage.getItem('todo-component') ) || [];
+    let hash = window.location.hash;
+    if (hash) {
+      this.nowHash = hash.replace(/#/, '');
+    }
+
   }
 }
 </script>
