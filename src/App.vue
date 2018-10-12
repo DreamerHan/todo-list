@@ -55,14 +55,6 @@ export default {
       this.nowHash = value;
     }
   },
-  watch : {
-      taskList : {
-          handler(){
-              localStorage.setItem('todo-component', JSON.stringify(this.taskList) );
-          },
-          deep : true
-      }
-  },
   computed :{
     unCheckedLen(){
       return this.taskList.filter( (item) =>{
@@ -101,6 +93,12 @@ export default {
         this.nowHash = 'all';
         window.location.hash = this.nowHash;
       }
+    },
+    taskList : {
+        handler(){
+            localStorage.setItem('todo-component', JSON.stringify(this.taskList) );
+        },
+        deep : true
     }
   }
 }
@@ -109,8 +107,5 @@ export default {
 <style>
 #app {
   height:100%;
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 </style>

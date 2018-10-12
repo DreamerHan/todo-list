@@ -16,7 +16,10 @@ export default {
     },
     methods :{
         handleAdd(){
-           if ( !this.todoVal ) return;
+           if ( !this.todoVal ) {
+               alert('请填写内容后再行提交！');
+               return;
+           }
             this.$emit('addFn', this.todoVal);
             this.todoVal = '';
         }
