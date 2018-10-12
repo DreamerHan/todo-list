@@ -26,4 +26,5 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 无法处理 window.onhashchange事件下以及人工改变hash值时的数据筛选功能
 
 【2018-10-12】
+
 人工改变hash值及点选数据筛选功能完善
