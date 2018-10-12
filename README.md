@@ -24,3 +24,4 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 
 完善了脚手架组件化的todo-list，未用vuex和vue-router。
 无法处理 window.onhashchange事件下以及人工改变hash值时的数据筛选功能
+`测试推送`
